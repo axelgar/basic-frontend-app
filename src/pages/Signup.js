@@ -36,15 +36,15 @@ class Signup extends Component {
     return (
       <>
         <form onSubmit={this.handleFormSubmit}>
-          <label htmlFor="username">Username:</label>
-          <input id="username" type="text" name="username" value={username} onChange={this.handleChange}/>
-          <label htmlFor="password">Password:</label>
-          <input id="password" type="password" name="password" value={password} onChange={this.handleChange} />
-          <input type="submit" value="Signup" />
+          <label htmlFor='username'>Username:</label>
+          <input id='username' type='text' name='username' value={username} onChange={this.handleChange}/>
+          <label htmlFor='password'>Password:</label>
+          <input id='password' type='password' name='password' value={password} onChange={this.handleChange} />
+          <input type='submit' value='Signup' />
         </form>
 
         <p>Already have account? 
-          <Link to={"/login"}> Login</Link>
+          <Link to={'/login'}> Login</Link>
         </p>
 
       </>

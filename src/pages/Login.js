@@ -5,8 +5,8 @@ import auth from '../services/auth-service';
 
 class Login extends Component {
   state = {
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   }
 
   handleFormSubmit = (event) => {
@@ -30,15 +30,15 @@ class Login extends Component {
     return (
       <>
         <form onSubmit={this.handleFormSubmit}>
-          <label htmlFor="username" >Username:</label>
-          <input id="username" type="text" name="username" value={username} onChange={this.handleChange}/>
-          <label htmlFor="password">Password:</label>
-          <input id="password" type="password" name="password" value={password} onChange={this.handleChange} />
-          <input type="submit" value="Login" />
+          <label htmlFor='username' >Username:</label>
+          <input id='username' type='text' name='username' value={username} onChange={this.handleChange}/>
+          <label htmlFor='password'>Password:</label>
+          <input id='password' type='password' name='password' value={password} onChange={this.handleChange} />
+          <input type='submit' value='Login' />
         </form>
 
         <p>You don't have an accout yet?
-            <Link to={"/signup"}> Signup</Link>
+            <Link to={'/signup'}> Signup</Link>
         </p>
       </>
     )
