@@ -3,7 +3,8 @@ import axios from 'axios';
 class AuthService {
   constructor() {
     this.auth = axios.create({
-      baseURL: 'http://localhost:4000'
+      baseURL: 'http://localhost:4000',
+      withCredentials: true,
     })
   }
 
@@ -30,6 +31,6 @@ class AuthService {
   }
 }
 
-const auth = new AuthService();
+const authService = new AuthService();
 
-export default auth
+export default authService;
