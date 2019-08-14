@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
+import withAuth from '../components/withAuth.js'
+
+import { Link } from 'react-router-dom';
+
 class Private extends Component {
   render() {
     
     return (
       <div>
-        <h1>Welcome Paquito</h1>
+        <Link to='/signup'>Signup</Link>
+      
+        
+      
       </div>
     )
   }
 }
 
-export default Private;
+export default  withAuth(Private);

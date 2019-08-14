@@ -1,68 +1,94 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# CityZen Homes
 
-## Available Scripts
+## Descripción
 
-In the project directory, you can run:
+Esta es una aplicación para crear un portal inmobiliario que facilite la busqueda de viviendas para la compra y el alquiler de las mismas
 
-### `npm start`
+## Historias de usuarios
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 404: Como anónimo/usuario puedo ver una página 404 si intento llegar a una página que no existe.
+- Registrarse: Como administrador puedo logearme y crear contraseñas para que otras personas puedan registrarse.
+- Como usuario no logeado puedo seleccionar viviendas y, si alguna me interesa, avisar al administrador via mail para que se ponga en contacto conmigo
+- Iniciar sesión: Como usuario puedo acceder a la plataforma para añadir, modificar o eliminar viviendas de mi cartera
+- Cerrar sesión: Como usuario puedo desconectarme de la plataforma.
+- Los usuarios no logeados podrán ver fotos de viviendas, tener una descripcion completa y tener acceso a la localización de las mismas
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## MVP
 
-### `npm test`
+Aplicacion que permite a los usuarios no logeados ver las viviendas en stock de una inmobiliaria y hacer busquedas entre las mismas
+Los usuarios logeados podrán hacer lo mismo, pero además, podrán añadir, borrar y modificar las ya creadas
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Backlog
 
-### `npm run build`
+-Añadir una API para mapear donde estan las viviendas
+-Que la aplicacion sea responsive
+-Animaciones y transiciones
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Rutas
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+/Muestra un buscador, da acceso privatePage (mediante el login) y a la lista de viviendas
+/privatePage - permite crear signup para otros usuarios, eliminar, crear y modidificar viviendas, ir al listado de viviendas o a home si haces logout
+/vivienda/add - creas nuevas viviendas
+/vivienda/update&delete/:id - modificas o eliminas vivendas
+/List - Permite ver el conjunto de viviendas en cartera y da, de nuevo, acceso a un buscador para seleccionar viviendas 
+vivenda/:id - Permite ver la vivienda y sus fotos. Dar aviso de contacto a la inmobialiaria
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Componentes
 
-### `npm run eject`
+Navbar
+Card
+AnonRoute
+Footer
+Home
+Form
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Servicio de Autoría
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+auth.login(usuario)
+auth.signup(usuario)
+auth.logout()
+auth.me()
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Rutas backend
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+|Method|URL|Description|
+|------|---|-----------|
 
-## Learn More
+|POST|'/auth/login'| Comprueba si el usuario esta en la base de datos |
+|POST|'auth/signup' | Crea nuevo usuario en la base de datos|
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+|GET|'/auth/logout'| Cierra la sesion del usuario|
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+|GET|'/viviendas/'| Muestra todas las viviendas|
+|GET|'/viviendas/:id/'| Muestra los detalles de una vivienda
 
-### Code Splitting
+|PUT|'/viviendas/:id/edit'| Modifica los datos de la vivienda en la base de datos|
+|DELETE|'/viviendas/:id/delete'| Elimina la vivienda de la base de datos|
+|POST|'/viviendas/create' | Incluye la vivienda en la base de datos|
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Models
 
-### Analyzing the Bundle Size
+User: 
+- username
+- password
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Viviendas
+- titulo
+- clase ['venta', 'alquiler']
+- tipo ['chalet', 'piso', planta baja', 'apartamento']
+- contacto
+- owner: {ObjectId}
+- price
+- metros
+- habitaciones
 
-### Making a Progressive Web App
+## Enlaces
+Trello
+https://trello.com/b/GKQZv5R5/cityzen
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## GitHub
+La dirección URL de su repositorio y de su proyecto desplegado
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Wifrems
+figma
+https://www.figma.com/file/zcIl8HFkJYWfLU4tzb5K4p/Untitled?node-id=0%3A1

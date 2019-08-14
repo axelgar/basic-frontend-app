@@ -3,7 +3,9 @@ import axios from 'axios';
 class AuthService {
   constructor() {
     this.auth = axios.create({
-      baseURL: 'http://localhost:4000'
+      baseURL: 'http://localhost:4000',
+      withCredentials: true,
+//withCredentials mantiene las cookies del backend al frontend
     })
   }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import withAuth from '../components/withAuth.js'
 
-import auth from '../services/auth-service';
 
 class Signup extends Component {
 
@@ -14,8 +14,8 @@ class Signup extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
-
-    auth.signup({ username, password })
+  console.log(this.props)
+    this.props.signup({ username, password })
       .then( (user) => {
         console.log(user)
         this.setState({
@@ -32,6 +32,7 @@ class Signup extends Component {
   }
 
   render() {
+    console.log(this.props)
     const { username, password } = this.state;
     return (
       <>
@@ -43,13 +44,13 @@ class Signup extends Component {
           <input type='submit' value='Signup' />
         </form>
 
-        <p>Already have account? 
+        {/* <p>Already have account? 
           <Link to={'/login'}> Login</Link>
-        </p>
+        </p> */}
 
       </>
     )
   }
 }
 
-export default Signup;
+export default withAuth(Signup);
