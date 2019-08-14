@@ -4,6 +4,7 @@ import withAuth from './withAuth'
 
 
 function AnonRoute(props) {
+  
   const {isLoggedIn, component: Component, ...rest} = props;
   //pasamos component a mayusculas para que lo entienda React
   return (

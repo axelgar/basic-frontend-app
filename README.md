@@ -59,7 +59,7 @@ auth.me()
 
 |GET|'/auth/logout'| Cierra la sesion del usuario|
 
-|GET|'/viviendas/'| Muestra todas las viviendas|
+|GET|'/viviendas/'| Muestra todas las viviendas y sirve para crear el buscador|
 |GET|'/viviendas/:id/'| Muestra los detalles de una vivienda
 
 |PUT|'/viviendas/:id/edit'| Modifica los datos de la vivienda en la base de datos|
@@ -92,3 +92,7 @@ La dirección URL de su repositorio y de su proyecto desplegado
 ## Wifrems
 figma
 https://www.figma.com/file/zcIl8HFkJYWfLU4tzb5K4p/Untitled?node-id=0%3A1
+
+## Heroku
+https://git.heroku.com/enigmatic-castle-36560.git - backend
+

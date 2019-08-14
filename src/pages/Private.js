@@ -8,7 +8,10 @@ class Private extends Component {
     
     return (
       <div>
+        <h1>Private Page</h1>
         <Link to='/signup'>Signup</Link>
+        <Link to='/list'>Lista de viviendas</Link>
+        <Link to='/'>Home</Link>
       
         
       
