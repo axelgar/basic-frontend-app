@@ -8,7 +8,10 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import AuthProvider from './context/AuthContext.js'
 import PrivateRoute from './components/PrivateRoute'
+import PrivateList from './components/PrivateList'
 import AnonRoute from './components/AnonRoute'
+import CrearViviendas from './components/CrearViviendas';
+import EliminarVivienda from './components/EliminarVivienda'
 import NotFound from './pages/NotFound'
 import List from './pages/List'
 import Home from './pages/Home'
@@ -23,12 +26,16 @@ class App extends Component {
         <AuthProvider>
         <div className="container">
         
+          
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/signup" component={Signup} />
+            <PrivateRoute exact path ="/privatelist" component={PrivateList} />
             <AnonRoute exact path="/login" component={Login} />
             <PrivateRoute exact path="/private" component={Private} />
+            <PrivateRoute exact path="/crearvivienda" component={CrearViviendas} />
+            <PrivateRoute exact path="/eliminarvivienda" component={EliminarVivienda} />
             <Route path = "/list" exact component={List} />
             <Route path = "/detail" exact component={Detail} />
             <Route component={NotFound} />

@@ -94,5 +94,7 @@ figma
 https://www.figma.com/file/zcIl8HFkJYWfLU4tzb5K4p/Untitled?node-id=0%3A1
 
 ## Heroku
-https://git.heroku.com/enigmatic-castle-36560.git - backend
+https://inmob-backend.herokuapp.com/- backend
+https://inmob-frontend.firebaseapp.com - frontend
+
 
