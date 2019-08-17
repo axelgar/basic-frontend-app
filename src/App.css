@@ -37,4 +37,7 @@
     transform: rotate(360deg);
   }
 }
+.button-private{
+  color: black
+}
 

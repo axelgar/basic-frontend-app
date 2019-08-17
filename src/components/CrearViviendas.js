@@ -17,8 +17,6 @@ class CrearVivienda extends Component {
     redirect: false,
   }
 
-
-
   handelSubmit= (event) => {
     const {title, type, image, price, numHab, numAseos, referencia, description} = this.state
     event.preventDefault();
@@ -31,8 +29,6 @@ class CrearVivienda extends Component {
     numAseos,
     referencia,
     description,
-
-
     })
     .then(() => {
       this.setState({
@@ -40,7 +36,6 @@ class CrearVivienda extends Component {
       })
     })
     .catch (error => {console.log(error)
-
   })
 }
   handelOnChange = (event)=> {

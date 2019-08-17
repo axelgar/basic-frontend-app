@@ -11,10 +11,12 @@ class Private extends Component {
       <div>
        
         <h1>Private Page</h1>
-        <Link to='/signup'>Signup</Link>
-        <Link to='/privatelist'>Lista de viviendas</Link>
-        <Link to='/crearvivienda'>Crear nueva vivienda</Link>
-        <Link to='/eliminarvivienda'>Eliminar vivienda</Link>
+        <Link to='/signup'><button>Crear nuevo usuario</button></Link>
+        <Link to='/privatelist'><button>Lista de viviendas</button></Link>
+        <Link to='/crearvivienda'><button>Crear nueva vivienda</button></Link>
+        <Link to='/searchreferencia'><button>Buscar por referencia</button></Link>
+        <Link to='/modificarvivienda'><button>Modificar vivienda</button></Link>
+        <Link to='/eliminarvivienda'><button>Eliminar vivienda</button></Link>
       
       
         

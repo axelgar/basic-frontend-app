@@ -10,8 +10,10 @@ import AuthProvider from './context/AuthContext.js'
 import PrivateRoute from './components/PrivateRoute'
 import PrivateList from './components/PrivateList'
 import AnonRoute from './components/AnonRoute'
+import SearchReferencia from './components/SearchReferencia'
 import CrearViviendas from './components/CrearViviendas';
 import EliminarVivienda from './components/EliminarVivienda'
+import ModificarVivienda from './components/ModificarVivienda'
 import NotFound from './pages/NotFound'
 import List from './pages/List'
 import Home from './pages/Home'
@@ -30,14 +32,16 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/signup" component={Signup} />
-            <PrivateRoute exact path ="/privatelist" component={PrivateList} />
-            <AnonRoute exact path="/login" component={Login} />
-            <PrivateRoute exact path="/private" component={Private} />
-            <PrivateRoute exact path="/crearvivienda" component={CrearViviendas} />
-            <PrivateRoute exact path="/eliminarvivienda" component={EliminarVivienda} />
-            <Route path = "/list" exact component={List} />
-            <Route path = "/detail" exact component={Detail} />
+            <Route  path="/signup" component={Signup} />
+            <PrivateRoute  path ="/privatelist" component={PrivateList} />
+            <AnonRoute  path="/login" component={Login} />
+            <PrivateRoute  path="/private" component={Private} />
+            <PrivateRoute  path="/crearvivienda" component={CrearViviendas} />
+            <PrivateRoute  path="/eliminarvivienda" component={EliminarVivienda} />
+            <PrivateRoute  path="/modificarvivienda" component={ModificarVivienda} />
+            <Route path = "/list"  component={List} />
+            <Route path = "/detail/:id"  component={Detail} />
+            <Route path="/searchreferencia" component={SearchReferencia} />
             <Route component={NotFound} />
           </Switch>
           <Footer />

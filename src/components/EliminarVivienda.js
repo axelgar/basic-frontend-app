@@ -38,7 +38,7 @@ class EliminarVivienda extends Component {
 
   render() {
     const {viviendas, redirect} = this.state
-    console.log(viviendas)
+ 
     return (
      
         <div>
