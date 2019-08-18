@@ -239,15 +239,15 @@ export default class ViviendaForm extends Component {
 }
 
 //         <label htmlFor="image">Image</label>
-//         <input type="text" id="image" placeholder="" value={image} name= "image" onChange={this.handelOnChange }></input>
+//         <input type="text" id="image" placeholder="" value={image} name= "image" onChange={this.handleOnChange }></input>
 //        
 //      
 //         
 //         <label htmlFor="numHab">Numero de habitaciones</label>
-//         <input type="number" id="numHab" placeholder="" onChange={this.handelOnChange } name= "numHab" value={numHab} ></input>
+//         <input type="number" id="numHab" placeholder="" onChange={this.handleOnChange } name= "numHab" value={numHab} ></input>
 //         <label htmlFor="referencia">Numero de referencia</label>
-//         <input type="number" id="referencia" placeholder="" onChange={this.handelOnChange } name= "referencia" value={referencia} ></input>
+//         <input type="number" id="referencia" placeholder="" onChange={this.handleOnChange } name= "referencia" value={referencia} ></input>
 //         <label htmlFor="numAseos">Baños</label>
-//         <input type="number" id="numAseos" placeholder="" onChange={this.handelOnChange } name= "numAseos" value={numAseos} ></input>
+//         <input type="number" id="numAseos" placeholder="" onChange={this.handleOnChange } name= "numAseos" value={numAseos} ></input>
 //         <label htmlFor="description">Descripcion de la vivienda</label>
-//         <input type="description" id="description" placeholder="" onChange={this.handelOnChange } name= "description" value={description} ></input>
+//         <input type="description" id="description" placeholder="" onChange={this.handleOnChange } name= "description" value={description} ></input>
