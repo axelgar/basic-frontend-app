@@ -41,7 +41,6 @@ class CrearVivienda extends Component {
     direccion,
     metros,
     price,
-    piscina,
     jardin,
     numHab,
     numAseos,

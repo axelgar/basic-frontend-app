@@ -10,23 +10,23 @@ import PrivateCard from '../components/PrivateCard'
 
 class SearchVivienda extends Component {
   state = {
-      title: '',
-      type: undefined,
-      image: '',
-      price: 0,
-      numHab: 0,
-      NumAseos: 0,
-      referencia: 0,
-      clase: undefined,
-      description: '',
-      viviendas: []
-    }
+    title: undefined,
+    type: undefined,
+    image: undefined,
+    price: undefined,
+    numHab: undefined,
+    NumAseos: undefined,
+    referencia: undefined,
+    clase: undefined,
+    description: undefined,
+    metros: undefined,
+    viviendas: []
+  };
 
-    handleFormSubmit= (event) => {
-    
-      const {title, type, image, price, clase, numHab, numAseos, referencia, description} = this.state
-      event.preventDefault();
-      viviendaBackendService.searchVivienda({
+  handleFormSubmit= (event) => {
+    const {title, type, image, price, clase, numHab, numAseos, referencia, description} = this.state
+    event.preventDefault();
+    viviendaBackendService.searchVivienda({
       title,
       image,
       clase,
@@ -44,15 +44,15 @@ class SearchVivienda extends Component {
       })
       .catch (error => {console.log(error)
     })
-  }
+  };
 
   handleChange = (event) => {  
     const {name, value} = event.target;
     this.setState({[name]: value});
-  }
+  };
 
  render() {
-   const{referencia,viviendas} = this.state
+   const{referencia,clase, price, metros, numHab, numAseos, viviendas} = this.state
    console.log(this.state.viviendas.data)
    
    return (
@@ -88,9 +88,19 @@ class SearchVivienda extends Component {
         }) : <p>loading....</p>
         }
         <form onSubmit={this.handleFormSubmit}>
-         <label htmlFor='referencia'>Referencia:</label>
+          <label htmlFor='referencia'>Referencia:</label>
           <input id='referencia' type='number' name='referencia' value={referencia} onChange={this.handleChange}/>
-         <button type ="submit">Search</button>
+
+          <label htmlFor='clase'>Clase:</label>
+          <input id='clase' type='text' name='clase' value={clase} onChange={this.handleChange}/>
+
+          <label htmlFor='price'>Price:</label>
+          <input id='price' type='number' name='price' value={price} onChange={this.handleChange}/>
+
+          <label htmlFor='metros'>Meters:</label>
+          <input id='metros' type='number' name='metros' value={metros} onChange={this.handleChange}/>
+
+          <button type ="submit">Search</button>
          
       </form>
      </div>
