@@ -25,7 +25,6 @@ deleteOneVivienda(id){
   .then(response => response)
 }
 searchVivienda(vivienda){
-  console.log(vivienda, 'Paco Perez')
   return this.vivievdaBackendService.post(`/based/viviendas/search`, vivienda)
   .then(response => response)
 }

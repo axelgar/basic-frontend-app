@@ -4,6 +4,7 @@ import withAuth from './withAuth.js'
 import viviendaBackendService from '../services/viv-backend-service'
 import {Redirect} from 'react-router-dom'
 import ViviendaForm from "./ViviendaForm"
+import { Link } from 'react-router-dom';
 
 
 class ModificarVivienda extends Component {
@@ -12,17 +13,32 @@ class ModificarVivienda extends Component {
   }
 
   handelSubmit= (event) => {
-    const {title, type, image, price, numHab, numAseos, referencia, description} = this.state
+    const {title, type, image, price, numHab, numAseos, referencia, description, ciudad, direccion, metros, piscina, jardin,numGarajes, nombrePropietario, mailPropietario, telefonoPropietario} = this.state
     event.preventDefault();
     viviendaBackendService.updateOneVivienda({
     title,
     image,
     type,
-    price ,
+    ciudad,
+    direccion,
+    metros,
+    price,
+    piscina,
+    jardin,
     numHab,
     numAseos,
+    numGarajes,
+    piscina,
     referencia,
     description,
+    nombrePropietario,
+    telefonoPropietario,
+    mailPropietario
+
+
+
+
+
 
     })
     .then(()=>{})
@@ -61,6 +77,7 @@ class ModificarVivienda extends Component {
         <div>
           <h1>Modificar</h1>
           <p>Numero de viviendas en cartera: {viviendas.length}</p>
+          {/* <Link to='/searchreferencia'><button>Buscar por referencia</button></Link> */}
           {viviendas.length > 0 ? viviendas.map((vivienda)=>{
             return (
               <ViviendaForm

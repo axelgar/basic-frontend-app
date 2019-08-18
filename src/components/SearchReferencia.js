@@ -2,6 +2,10 @@
 import React, { Component } from 'react'
 import withAuth from './withAuth.js'
 import viviendaBackendService from '../services/viv-backend-service'
+import { Link } from 'react-router-dom'
+import PrivateCard from '../components/PrivateCard'
+
+
 
 
 class SearchVivienda extends Component {
@@ -13,17 +17,19 @@ class SearchVivienda extends Component {
       numHab: 0,
       NumAseos: 0,
       referencia: 0,
+      clase: undefined,
       description: '',
       viviendas: []
     }
 
     handleFormSubmit= (event) => {
     
-      const {title, type, image, price, numHab, numAseos, referencia, description} = this.state
+      const {title, type, image, price, clase, numHab, numAseos, referencia, description} = this.state
       event.preventDefault();
       viviendaBackendService.searchVivienda({
       title,
       image,
+      clase,
       type,
       price,
       numHab,
@@ -40,14 +46,10 @@ class SearchVivienda extends Component {
     })
   }
 
-
-
   handleChange = (event) => {  
     const {name, value} = event.target;
     this.setState({[name]: value});
   }
-
- 
 
  render() {
    const{referencia,viviendas} = this.state
@@ -57,25 +59,36 @@ class SearchVivienda extends Component {
      <div>
        <h1>Buscar por referencia:</h1>
        {viviendas.data ? viviendas.data.map((vivienda)=>{
-            return (
-          <article key={vivienda._id}>
+            return ( <Link key={vivienda._id} to={`/detail/${vivienda._id}`}>
 
-              <h3>{vivienda.title}</h3>
-              <img src={vivienda.image} alt={vivienda.title}></img>
-              <p>{vivienda.type}</p>
-              <p>{vivienda.price}</p>
-              <p>{vivienda.image}</p>
-              <p>{vivienda.numHab}</p>
-              <p>{vivienda.numAseos}</p>
-              <p>{vivienda.referencia}</p>
-              <p>{vivienda.description}</p>
-             
-         </article>
-            )
-          }) : null
-          }
+            <PrivateCard   
+              clase={vivienda.clase}
+              title={vivienda.title} 
+              image={vivienda.image} 
+              type={vivienda.type} 
+              city={vivienda.ciudad}
+              direccion={vivienda.direccion}
+              price={vivienda.price} 
+              metros={vivienda.metros}
+              numHab={vivienda.numHab} 
+              numAseos={vivienda.numAseos} 
+              referencia={vivienda.referencia} 
+              numGarajes={vivienda.numGarajes}
+              piscina={vivienda.piscina}
+              descripcion={vivienda.description}
+              nombrePropietario={vivienda.nombrePropietario}
+              telefonoPropietario={vivienda.telefonoPropietario}
+              mailPropietario={vivienda.mailPropietario}
+              onclick={this.handleClick}
+              />
+
+          </Link>
+          
+          )
+        }) : <p>loading....</p>
+        }
         <form onSubmit={this.handleFormSubmit}>
-         <label htmlFor='referencia' >Referencia:</label>
+         <label htmlFor='referencia'>Referencia:</label>
           <input id='referencia' type='number' name='referencia' value={referencia} onChange={this.handleChange}/>
          <button type ="submit">Search</button>
          

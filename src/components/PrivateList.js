@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withAuth from './withAuth.js'
 import viviendaBackendService from '../services/viv-backend-service'
+import PrivateCard from '../components/PrivateCard'
 
 class PrivateList extends Component {
 
@@ -21,32 +22,44 @@ class PrivateList extends Component {
     })
   }
 
-  
     render() {
-      const {viviendas} = this.state
-      console.log(viviendas)
+      const {viviendas,} = this.state
+      console.log(viviendas )
       return (
         <div>
           <h1>Lista de viviendas</h1>
+          <Link to='/searchreferencia'><button>Buscar por referencia</button></Link>
             {viviendas.length > 0 ? viviendas.map((vivienda)=>{
-              return (
-            <article key={vivienda._id}>
-                <h3>{vivienda.title}</h3>
-                <img src={vivienda.image} alt={vivienda.title}></img>
-                <p>{vivienda.type}</p>
-                <p>{vivienda.price}</p>
-                <p>{vivienda.city}</p>
-                <p>{vivienda.numHab}</p>
-                <p>{vivienda.numAseos}</p>
-                <p>{vivienda.referencia}</p>
-                <p>{vivienda.description}</p>
-                <button onClick = {() => {
-                this.handleDeleteClick(vivienda._id)
-                 }}>X</button>
-           </article>
-              )
-            }) : <p>loading....</p>
-            }
+              return ( <Link key={vivienda._id} to={`/detail/${vivienda._id}`}>
+
+              <PrivateCard   
+                title={vivienda.title} 
+                clase={vivienda.clase}
+                image={vivienda.image} 
+                type={vivienda.type} 
+                city={vivienda.ciudad}
+                direccion={vivienda.direccion}
+                price={vivienda.price} 
+                metros={vivienda.metros}
+                numHab={vivienda.numHab} 
+                numAseos={vivienda.numAseos} 
+                referencia={vivienda.referencia} 
+                numGarajes={vivienda.numGarajes}
+                piscina={vivienda.piscina}
+                jardin={vivienda.jardin}
+                descripcion={vivienda.description}
+                nombrePropietario={vivienda.nombrePropietario}
+                telefonoPropietario={vivienda.telefonoPropietario}
+                mailPropietario={vivienda.mailPropietario}
+                onclick={this.handleClick}
+                />
+
+            </Link>
+            
+            )
+          }) : <p>loading....</p>
+          }
+           
           
         </div>
       )

@@ -47,6 +47,7 @@ class EliminarVivienda extends Component {
             return (
               <article key = {vivienda._id}>
                 <h3>{vivienda.title}</h3>
+              <p>{vivienda.clase}</p>
               <img src={vivienda.image} alt={vivienda.title}></img>
               <p>{vivienda.type}</p>
               <p>{vivienda.price}</p>
